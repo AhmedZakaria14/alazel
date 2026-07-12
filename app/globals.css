@@ -14,9 +14,9 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-padding-top: 86px; }
+html { scroll-padding-top: 86px; scroll-behavior: smooth; }
 @media (max-width: 760px) {
-  html { scroll-padding-top: 74px; scroll-behavior: auto; }
+  html { scroll-padding-top: 74px; scroll-behavior: smooth; }
 }
 body { margin: 0; background: var(--white); color: var(--ink); font-family: Tahoma, Arial, sans-serif; line-height: 1.75; }
 img { display: block; max-width: 100%; }

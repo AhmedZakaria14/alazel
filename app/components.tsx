@@ -7,20 +7,30 @@ export function Header() {
     
     // 1. Close the menu immediately
     const toggle = document.getElementById('nav-toggle') as HTMLInputElement;
-    if (toggle) toggle.checked = false;
+    if (toggle) {
+      toggle.checked = false;
+      // Force reflow to ensure menu closes before scrolling
+      void toggle.offsetHeight;
+    }
 
     // 2. Handle scrolling manually for anchors to prevent conflicts
     if (targetId.startsWith('#')) {
       e.preventDefault();
       const element = document.getElementById(targetId.substring(1));
       if (element) {
-        const headerHeight = window.innerWidth <= 760 ? 74 : 86;
-        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        // Use scroll-padding-top from CSS instead of manual calculation
+        // This ensures consistency with CSS scroll-padding-top
+        const computedStyle = window.getComputedStyle(document.documentElement);
+        const scrollPaddingTop = parseFloat(computedStyle.scrollPaddingTop) || 86;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - scrollPaddingTop;
         
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        // Add a small delay to ensure menu is fully closed before scrolling
+        setTimeout(() => {
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }, 50);
         
         // Update URL hash without jumping
         window.history.pushState(null, '', targetId);
