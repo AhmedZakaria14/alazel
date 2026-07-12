@@ -2,6 +2,32 @@
 import { internationalPhone, phone, services } from "./data";
 
 export function Header() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (typeof document === 'undefined') return;
+    
+    // 1. Close the menu immediately
+    const toggle = document.getElementById('nav-toggle') as HTMLInputElement;
+    if (toggle) toggle.checked = false;
+
+    // 2. Handle scrolling manually for anchors to prevent conflicts
+    if (targetId.startsWith('#')) {
+      e.preventDefault();
+      const element = document.getElementById(targetId.substring(1));
+      if (element) {
+        const headerHeight = window.innerWidth <= 760 ? 74 : 86;
+        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Update URL hash without jumping
+        window.history.pushState(null, '', targetId);
+      }
+    }
+  };
+
   return (
     <>
       <div className="topline">
@@ -19,11 +45,11 @@ export function Header() {
           <input className="nav-toggle" type="checkbox" id="nav-toggle" />
           <label className="menu-button" htmlFor="nav-toggle" aria-label="فتح القائمة"><i /><i /><i /></label>
           <nav className="main-nav" aria-label="القائمة الرئيسية">
-            <a href="/" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>الرئيسية</a>
-            <a href="/#services" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>خدماتنا</a>
-            <a href="/#work" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>أعمالنا</a>
-            <a href="/#about" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>من نحن</a>
-            <a href="/#faq" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>الأسئلة الشائعة</a>
+            <a href="/" onClick={(e) => handleNavClick(e, '/')}>الرئيسية</a>
+            <a href="/#services" onClick={(e) => handleNavClick(e, '#services')}>خدماتنا</a>
+            <a href="/#work" onClick={(e) => handleNavClick(e, '#work')}>أعمالنا</a>
+            <a href="/#about" onClick={(e) => handleNavClick(e, '#about')}>من نحن</a>
+            <a href="/#faq" onClick={(e) => handleNavClick(e, '#faq')}>الأسئلة الشائعة</a>
           </nav>
           <a className="button button-small header-cta" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a>
         </div>
