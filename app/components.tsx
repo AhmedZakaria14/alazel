@@ -19,11 +19,11 @@ export function Header() {
           <input className="nav-toggle" type="checkbox" id="nav-toggle" />
           <label className="menu-button" htmlFor="nav-toggle" aria-label="فتح القائمة"><i /><i /><i /></label>
           <nav className="main-nav" aria-label="القائمة الرئيسية">
-            <a href="/">الرئيسية</a>
-            <a href="/#services">خدماتنا</a>
-            <a href="/#work">أعمالنا</a>
-            <a href="/#about">من نحن</a>
-            <a href="/#faq">الأسئلة الشائعة</a>
+            <a href="/" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>الرئيسية</a>
+            <a href="/#services" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>خدماتنا</a>
+            <a href="/#work" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>أعمالنا</a>
+            <a href="/#about" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>من نحن</a>
+            <a href="/#faq" onClick={() => { if (typeof document !== 'undefined') { const t = document.getElementById('nav-toggle') as HTMLInputElement; if (t) t.checked = false; } }}>الأسئلة الشائعة</a>
           </nav>
           <a className="button button-small header-cta" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a>
         </div>
