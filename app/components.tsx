@@ -1,7 +1,28 @@
 /* eslint-disable @next/next/no-html-link-for-pages, @next/next/no-img-element */
+"use client";
+import { useEffect } from "react";
 import { internationalPhone, phone, services } from "./data";
 
 export function Header() {
+  useEffect(() => {
+    const toggle = document.getElementById('nav-toggle') as HTMLInputElement;
+    if (!toggle) return;
+
+    const handleChange = () => {
+      if (toggle.checked) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    };
+
+    toggle.addEventListener('change', handleChange);
+    return () => {
+      toggle.removeEventListener('change', handleChange);
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     if (typeof document === 'undefined') return;
     
@@ -9,6 +30,7 @@ export function Header() {
     const toggle = document.getElementById('nav-toggle') as HTMLInputElement;
     if (toggle) {
       toggle.checked = false;
+      document.body.style.overflow = ''; // Explicitly unlock scroll
       // Force reflow to ensure menu closes before scrolling
       void toggle.offsetHeight;
     }
@@ -19,7 +41,6 @@ export function Header() {
       const element = document.getElementById(targetId.substring(1));
       if (element) {
         // Use scroll-padding-top from CSS instead of manual calculation
-        // This ensures consistency with CSS scroll-padding-top
         const computedStyle = window.getComputedStyle(document.documentElement);
         const scrollPaddingTop = parseFloat(computedStyle.scrollPaddingTop) || 86;
         const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - scrollPaddingTop;

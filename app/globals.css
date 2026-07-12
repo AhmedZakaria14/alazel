@@ -261,7 +261,6 @@ button, input { font: inherit; }
   .main-nav { position: absolute; display: grid; align-items: stretch; gap: 0; top: 73px; left: 14px; right: 14px; background: white; padding: 12px 20px; box-shadow: var(--shadow); transform: translateY(-12px); opacity: 0; pointer-events: none; transition: .2s; }
   .main-nav a { padding: 12px 2px; border-bottom: 1px solid var(--line); }
   .nav-toggle:checked ~ .main-nav { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  body:has(.nav-toggle:checked) { overflow: hidden; }
   .hero { min-height: auto; }
   .hero-overlay { background: linear-gradient(180deg, rgba(5,45,33,.88), rgba(5,45,33,.97)); }
   .hero-content { grid-template-columns: 1fr; gap: 35px; padding-block: 65px; }
