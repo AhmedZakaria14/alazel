@@ -43,7 +43,12 @@ export function Footer() {
         <div><h3>الخدمات</h3>{services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}</div>
         <div><h3>تواصل معنا</h3><a href={`tel:${phone}`}>اتصال: <bdi>{phone}</bdi></a><a href={`https://wa.me/${internationalPhone}`}>واتساب: <bdi>{phone}</bdi></a><span>حائل، المملكة العربية السعودية</span></div>
       </div>
-      <div className="shell copyright">© 2026 العازل للعزل الحديث. جميع الحقوق محفوظة.</div>
+      <div className="shell copyright">
+        <div>© 2026 العازل للعزل الحديث. جميع الحقوق محفوظة.</div>
+        <div className="developer-credit">
+          تصميم وتطوير <a href="https://nasharhub.com" target="_blank" rel="noopener noreferrer">NasharHub</a>
+        </div>
+      </div>
     </footer>
   );
 }
