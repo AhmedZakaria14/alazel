@@ -37,25 +37,27 @@ export function Header() {
 
     // 2. Handle scrolling manually for anchors to prevent conflicts
     if (targetId.startsWith('#')) {
-      e.preventDefault();
       const element = document.getElementById(targetId.substring(1));
-      if (element) {
-        // Use scroll-padding-top from CSS instead of manual calculation
-        const computedStyle = window.getComputedStyle(document.documentElement);
-        const scrollPaddingTop = parseFloat(computedStyle.scrollPaddingTop) || 86;
-        const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - scrollPaddingTop;
-        
-        // Add a small delay to ensure menu is fully closed before scrolling
-        setTimeout(() => {
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }, 50);
-        
+      // On an inner page, keep the original href (for example /#services)
+      // so the browser can navigate back to the matching section on the home page.
+      if (!element) return;
+
+      e.preventDefault();
+      // Use scroll-padding-top from CSS instead of manual calculation
+      const computedStyle = window.getComputedStyle(document.documentElement);
+      const scrollPaddingTop = parseFloat(computedStyle.scrollPaddingTop) || 86;
+      const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - scrollPaddingTop;
+
+        // Add a small delay to ensure menu closes before scrolling
+      setTimeout(() => {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 50);
+
         // Update URL hash without jumping
-        window.history.pushState(null, '', targetId);
-      }
+      window.history.pushState(null, '', targetId);
     }
   };
 
