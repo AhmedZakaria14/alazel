@@ -23,7 +23,7 @@ export type Service = {
 };
 
 export const siteConfig = {
-  url: "https://roknalebtesama.com",
+  url: "https://www.azelhail.com",
   name: "العازل للعزل الحديث",
   legalName: "مؤسسة العازل للعزل الحديث",
   description:

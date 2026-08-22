@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { ContactBanner, FloatingActions, Footer, Header } from "./components";
 import { internationalPhone, phone, services, siteConfig } from "./data";
+import { articles } from "./articles-data";
 
 const faq = [
   {
@@ -148,6 +149,18 @@ export default function Home() {
                   <span>0{index + 1}</span>
                 </div>
                 <div className="service-body"><h3>{service.shortTitle}</h3><p>{service.description}</p><a href={`/services/${service.slug}`} aria-label={`قراءة تفاصيل ${service.shortTitle}`}>تفاصيل الخدمة <b>←</b></a></div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section shell articles-preview" id="articles" aria-labelledby="articles-preview-title">
+          <div className="section-heading split-heading"><div><span className="eyebrow">مركز المعرفة</span><h2 id="articles-preview-title">أدلة تساعدك قبل الإصلاح</h2></div><p>تعرف على علامات التسرب وطرق الفحص ومعالجة الرطوبة والعزل من خلال مقالات عملية موجهة لمنازل ومنشآت حائل.</p></div>
+          <div className="article-grid article-grid-preview">
+            {articles.map((article) => (
+              <article className="article-card" key={article.slug}>
+                <a className="article-card-image" href={`/articles/${article.slug}`} aria-label={`قراءة ${article.title}`}><img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} loading="lazy" decoding="async" /></a>
+                <div className="article-card-body"><span className="article-card-keyword">{article.primaryKeyword}</span><h3><a href={`/articles/${article.slug}`}>{article.title}</a></h3><p>{article.excerpt}</p><a className="article-read-link" href={`/articles/${article.slug}`}>اقرأ المقال <b>←</b></a></div>
               </article>
             ))}
           </div>

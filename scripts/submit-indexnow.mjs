@@ -1,4 +1,4 @@
-const host = "roknalebtesama.com";
+const host = "www.azelhail.com";
 const key = "d21b4256b3ce67f3da77319903eba42d";
 const baseUrl = `https://${host}`;
 const paths = [
@@ -7,6 +7,12 @@ const paths = [
   "/services/tank-insulation",
   "/services/bathroom-insulation",
   "/services/kitchen-insulation",
+  "/articles",
+  "/articles/water-leaks-types",
+  "/articles/specialized-leak-detection-company",
+  "/articles/timing-moisture-water-leak",
+  "/articles/accurate-water-leak-inspection",
+  "/articles/treat-water-leak-insulation",
 ];
 
 const payload = {

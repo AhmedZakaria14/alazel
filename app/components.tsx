@@ -81,6 +81,7 @@ export function Header() {
             <a href="/#work" onClick={(e) => handleNavClick(e, '#work')}>أعمالنا</a>
             <a href="/#about" onClick={(e) => handleNavClick(e, '#about')}>من نحن</a>
             <a href="/#faq" onClick={(e) => handleNavClick(e, '#faq')}>الأسئلة الشائعة</a>
+            <a href="/articles">المقالات</a>
           </nav>
           <a className="button button-small header-cta" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a>
         </div>
@@ -97,7 +98,7 @@ export function Footer() {
           <div className="footer-brand">العازل للعزل الحديث</div>
           <p>حلول عزل احترافية تحمي منزلك من الحرارة والرطوبة والتسربات في حائل.</p>
         </div>
-        <div><h3>الخدمات</h3>{services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}</div>
+        <div><h3>الخدمات والمقالات</h3>{services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}<a href="/articles">مقالات كشف التسرب والعزل</a></div>
         <div><h3>تواصل معنا</h3><a href={`tel:${phone}`}>اتصال: <bdi>{phone}</bdi></a><a href={`https://wa.me/${internationalPhone}`}>واتساب: <bdi>{phone}</bdi></a><span>حائل، المملكة العربية السعودية</span></div>
       </div>
       <div className="shell copyright">
