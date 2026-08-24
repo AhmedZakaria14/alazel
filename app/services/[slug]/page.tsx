@@ -147,11 +147,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <>
       <Header />
       <main>
-        <section className="service-hero service-hero-premium">
+        <section className="service-hero">
           <div className="shell">
             <nav className="breadcrumbs" aria-label="مسار التنقل"><a href="/">الرئيسية</a> / <a href="/#services">خدمات العزل</a> / <span aria-current="page">{service.shortTitle}</span></nav>
             <div className="service-hero-grid">
-              <div className="service-hero-copy"><span className="inner-kicker">ALAZEL / SERVICE 0{services.findIndex((item) => item.slug === service.slug) + 1}</span><span className="eyebrow light">{service.eyebrow}</span><h1>{service.title}</h1><p>{service.description}</p><div className="service-hero-actions"><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية <span className="button-arrow">←</span></a><span className="service-hero-note">معاينة أولية مجانية<br /><bdi>{phone}</bdi></span></div></div>
+              <div><span className="eyebrow light">{service.eyebrow}</span><h1>{service.title}</h1><p>{service.description}</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a></div>
               <div className="service-hero-image">
                 <img
                   src={service.image}
@@ -161,35 +161,35 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   loading="eager"
                   fetchPriority="high"
                 />
-                <span className="service-image-badge">تنفيذ احترافي بضمان <b>↗</b></span>
+                <span>تنفيذ احترافي بضمان</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section shell service-content service-content-premium">
+        <section className="section shell service-content">
           <article>
-            <div className="service-intro-label"><span className="eyebrow">01 / تفاصيل الخدمة</span><span className="service-intro-line" /></div>
+            <span className="eyebrow">تفاصيل الخدمة</span>
             <h2>حل عملي يناسب حالة موقعك</h2>
             <p>{service.description} نعاين الموقع أولًا ونشرح لك سبب المشكلة وخيارات المعالجة، ثم نحدد الخامات المناسبة والتكلفة قبل التنفيذ. بهذه الطريقة يكون قرار العزل مبنيًا على حالة الموقع الفعلية وليس على حل واحد لكل المشكلات.</p>
             <div className="feature-list">{service.features.map((feature) => <span key={feature}>✓ {feature}</span>)}</div>
 
-            <span className="eyebrow">02 / متى تحتاج الخدمة؟</span>
+            <span className="eyebrow">متى تحتاج الخدمة؟</span>
             <h2>علامات تستحق الفحص قبل أن تتفاقم</h2>
             <ul className="service-signs">
               {service.signs.map((sign) => <li key={sign}>{sign}</li>)}
             </ul>
 
-            <span className="eyebrow">03 / اختيار النظام المناسب</span>
+            <span className="eyebrow">اختيار النظام المناسب</span>
             <h2>المعاينة الجيدة تمنع الحلول المؤقتة</h2>
             <p>{service.benefits}</p>
 
-            <span className="eyebrow">04 / مراحل العمل</span>
+            <span className="eyebrow">مراحل العمل</span>
             <h2>تنفيذ منظم خطوة بخطوة</h2>
             <ol className="steps-list">{service.steps.map((step) => <li key={step}>{step}</li>)}</ol>
 
             <section className="service-faq" aria-labelledby="service-faq-title">
-              <span className="eyebrow">05 / أسئلة شائعة</span>
+              <span className="eyebrow">أسئلة شائعة</span>
               <h2 id="service-faq-title">ما الذي تحتاج معرفته عن {service.shortTitle}؟</h2>
               <div className="faq-list">
                 {service.faq.map((item) => (
@@ -201,7 +201,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               </div>
             </section>
           </article>
-          <aside className="side-contact side-contact-premium"><span className="side-contact-index">/ 24—7</span><span className="eyebrow">تواصل سريع</span><h3>خلّينا نشوف<br />المشكلة صح.</h3><p>أرسل صور الموقع عبر واتساب لتحصل على تقييم أولي، أو اطلب معاينة ميدانية داخل حائل.</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">تواصل عبر واتساب <span className="button-arrow">←</span></a><a className="phone-box" href={`tel:${phone}`}><small>اتصال مباشر</small><bdi>{phone}</bdi></a><div className="side-contact-trust"><span>✓ ضمان مكتوب</span><span>✓ موعد واضح</span></div></aside>
+          <aside className="side-contact"><span className="eyebrow">تواصل سريع</span><h3>اطلب تقييم المشكلة</h3><p>أرسل صور الموقع عبر واتساب لتحصل على تقييم أولي، أو اطلب معاينة ميدانية داخل حائل.</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">تواصل عبر واتساب</a><a className="phone-box" href={`tel:${phone}`}><bdi>{phone}</bdi></a></aside>
         </section>
         <ContactBanner />
       </main>
