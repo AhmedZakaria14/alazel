@@ -103,20 +103,20 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     <>
       <Header />
       <main>
-        <section className="article-hero article-hero-premium">
+        <section className="article-hero">
           <div className="shell">
             <nav className="breadcrumbs" aria-label="مسار التنقل"><Link href="/">الرئيسية</Link> / <Link href="/articles">المقالات</Link> / <span aria-current="page">{article.title}</span></nav>
             <div className="article-hero-grid">
-              <div className="article-hero-copy"><span className="inner-kicker">ALAZEL / FIELD NOTE</span><span className="eyebrow light">{article.primaryKeyword}</span><h1>{article.title}</h1><p>{article.excerpt}</p><div className="article-hero-meta"><span>دليل عملي</span><span>قراءة واضحة</span><span>حائل</span></div></div>
+              <div className="article-hero-copy"><span className="eyebrow light">{article.primaryKeyword}</span><h1>{article.title}</h1><p>{article.excerpt}</p></div>
               <div className="article-hero-image"><img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} fetchPriority="high" /></div>
             </div>
           </div>
         </section>
 
-        <section className="section shell article-layout article-layout-premium">
+        <section className="section shell article-layout">
           <article className="article-main">
-            <div className="article-meta"><span><b>ALAZEL</b> دليل عملي من العازل للعزل الحديث</span><span>خدمة العزل وكشف التسرب في حائل</span></div>
-            <nav className="toc toc-premium" aria-label="فهرس محتويات المقال"><span className="toc-index">/ 01</span>
+            <div className="article-meta"><span>دليل عملي من العازل للعزل الحديث</span><span>خدمة العزل وكشف التسرب في حائل</span></div>
+            <nav className="toc" aria-label="فهرس محتويات المقال">
               <strong>فهرس المحتويات</strong>
               <ol>{article.toc.map((item) => <li key={item.id}><a href={`#${item.id}`}>{item.text}</a></li>)}</ol>
             </nav>
@@ -140,7 +140,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </article>
 
           <aside className="article-sidebar">
-            <div className="side-contact article-contact article-contact-premium"><span className="side-contact-index">/ TALK TO US</span><span className="eyebrow">تواصل سريع</span><h3>هل لديك تسريب<br />يحتاج فحصًا؟</h3><p>أرسل صور المكان ووقت ظهور الرطوبة عبر واتساب، أو اطلب معاينة داخل حائل.</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noopener noreferrer">تواصل عبر واتساب <span className="button-arrow">←</span></a><a className="phone-box" href={`tel:${phone}`}><bdi>{phone}</bdi></a></div>
+            <div className="side-contact article-contact"><span className="eyebrow">تواصل سريع</span><h3>هل لديك تسريب يحتاج فحصًا؟</h3><p>أرسل صور المكان ووقت ظهور الرطوبة عبر واتساب، أو اطلب معاينة داخل حائل.</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noopener noreferrer">تواصل عبر واتساب</a><a className="phone-box" href={`tel:${phone}`}><bdi>{phone}</bdi></a></div>
             <div className="sidebar-keywords"><span className="eyebrow">موضوع المقال</span><p>{article.primaryKeyword}</p><div>{article.keywords.slice(1, 5).map((keyword) => <span key={keyword}>{keyword}</span>)}</div></div>
           </aside>
         </section>
