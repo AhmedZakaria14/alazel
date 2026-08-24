@@ -69,14 +69,14 @@ export function Header() {
           <a href={`tel:${phone}`}>اتصال مباشر: <bdi>{phone}</bdi></a>
         </div>
       </div>
-      <header className="site-header site-header-premium">
+      <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="/" aria-label="العازل للعزل الحديث - الرئيسية">
             <img src="/images/logo.webp" alt="شعار مؤسسة العازل للعزل الحديث" width="62" height="62" />
             <span><strong>العازل للعزل الحديث</strong><small>خبراء العزل في حائل</small></span>
           </a>
           <input className="nav-toggle" type="checkbox" id="nav-toggle" />
-          <label className="menu-button" htmlFor="nav-toggle" aria-label="فتح القائمة" title="فتح القائمة"><span>MENU</span><i /><i /><i /></label>
+          <label className="menu-button" htmlFor="nav-toggle" aria-label="فتح القائمة"><i /><i /><i /></label>
           <nav className="main-nav" aria-label="القائمة الرئيسية">
             <a href="/" onClick={(e) => handleNavClick(e, '/')}>الرئيسية</a>
             <a href="/#services" onClick={(e) => handleNavClick(e, '#services')}>خدماتنا</a>
@@ -94,14 +94,14 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="footer footer-premium">
+    <footer className="footer">
       <div className="shell footer-grid">
         <div>
-          <div className="footer-brand"><span>ALAZEL</span><strong>العازل للعزل الحديث</strong></div>
+          <div className="footer-brand">العازل للعزل الحديث</div>
           <p>حلول عزل احترافية تحمي منزلك من الحرارة والرطوبة والتسربات في حائل.</p>
         </div>
-        <div><span className="footer-index">01 / EXPERTISE</span><h3>الخدمات والمقالات</h3>{services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}<a href="/articles">مقالات كشف التسرب والعزل</a></div>
-        <div><span className="footer-index">02 / CONTACT</span><h3>تواصل معنا</h3><a href={`tel:${phone}`}>اتصال: <bdi>{phone}</bdi></a><a href={`https://wa.me/${internationalPhone}`}>واتساب: <bdi>{phone}</bdi></a><span>حائل، المملكة العربية السعودية</span></div>
+        <div><h3>الخدمات والمقالات</h3>{services.map((service) => <a key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</a>)}<a href="/articles">مقالات كشف التسرب والعزل</a></div>
+        <div><h3>تواصل معنا</h3><a href={`tel:${phone}`}>اتصال: <bdi>{phone}</bdi></a><a href={`https://wa.me/${internationalPhone}`}>واتساب: <bdi>{phone}</bdi></a><span>حائل، المملكة العربية السعودية</span></div>
       </div>
       <div className="shell copyright">
         <div>© 2026 العازل للعزل الحديث. جميع الحقوق محفوظة.</div>
