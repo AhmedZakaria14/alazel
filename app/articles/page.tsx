@@ -25,36 +25,33 @@ export default function ArticlesPage() {
     <>
       <Header />
       <main>
-        <section className="service-hero articles-index-hero articles-index-hero-premium">
+        <section className="service-hero articles-index-hero">
           <div className="shell">
             <nav className="breadcrumbs" aria-label="مسار التنقل"><Link href="/">الرئيسية</Link> / <span aria-current="page">المقالات</span></nav>
             <div className="articles-index-copy">
-              <span className="inner-kicker">ALAZEL / FIELD NOTES</span>
               <span className="eyebrow light">مركز المعرفة</span>
-              <h1>اعرف السبب.<br /><em>اختار الحل الصح.</em></h1>
+              <h1>دليل عملي لفهم التسرب والعزل</h1>
               <p>مقالات مبسطة تساعدك على قراءة علامات الرطوبة، فهم طرق الكشف، ومعرفة الخطوة المناسبة قبل الإصلاح أو إعادة العزل.</p>
-              <div className="articles-hero-stats"><span><b>{articles.length}+</b> أدلة عملية</span><span><b>100%</b> بلغة واضحة</span></div>
             </div>
           </div>
         </section>
 
         <section className="section shell articles-index" aria-labelledby="articles-index-title">
           <div className="section-heading split-heading">
-            <div><span className="eyebrow">01 / مقالاتنا</span><h2 id="articles-index-title">إجابات واضحة<br />قبل اتخاذ القرار</h2></div>
+            <div><span className="eyebrow">مقالاتنا</span><h2 id="articles-index-title">إجابات واضحة قبل اتخاذ القرار</h2></div>
             <p>نكتب عن المشكلات الشائعة في المنازل والمنشآت داخل حائل بلغة عملية، مع توضيح الفرق بين كشف المصدر وإصلاحه ومعالجة العزل.</p>
           </div>
           <div className="article-grid">
             {articles.map((article) => (
-              <article className="article-card article-card-premium" key={article.slug}>
+              <article className="article-card" key={article.slug}>
                 <a className="article-card-image" href={`/articles/${article.slug}`} aria-label={`قراءة ${article.title}`}>
                   <img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} loading="lazy" decoding="async" />
-                  <span>{String(articles.indexOf(article) + 1).padStart(2, "0")}</span>
                 </a>
                 <div className="article-card-body">
                   <span className="article-card-keyword">{article.primaryKeyword}</span>
                   <h3><a href={`/articles/${article.slug}`}>{article.title}</a></h3>
                   <p>{article.excerpt}</p>
-                  <a className="article-read-link" href={`/articles/${article.slug}`}>اقرأ الدليل <b>←</b></a>
+                  <a className="article-read-link" href={`/articles/${article.slug}`}>اقرأ المقال <b>←</b></a>
                 </div>
               </article>
             ))}
