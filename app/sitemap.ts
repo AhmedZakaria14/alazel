@@ -3,7 +3,7 @@ import { articles } from "./articles-data";
 import { services, siteConfig } from "./data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date("2026-08-22T00:00:00+03:00");
+  const updated = new Date("2026-09-23T00:00:00+03:00");
   const absolute = (path: string) => `${siteConfig.url}${path}`;
 
   return [
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/services/${service.slug}`,
       lastModified: updated,
       changeFrequency: "monthly" as const,
-      priority: 0.85,
+      priority: 0.8,
       images: [absolute(service.image)],
       alternates: { languages: { "ar-SA": `${siteConfig.url}/services/${service.slug}` } },
     })),
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/articles/${article.slug}`,
       lastModified: updated,
       changeFrequency: "monthly" as const,
-      priority: 0.82,
+      priority: 0.8,
       images: [absolute(article.image)],
       alternates: { languages: { "ar-SA": `${siteConfig.url}/articles/${article.slug}` } },
     })),
