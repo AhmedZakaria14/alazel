@@ -6,6 +6,18 @@ import { ContactBanner, FloatingActions, Footer, Header } from "../../components
 import { articleBySlug, articles } from "../../articles-data";
 import { internationalPhone, phone, siteConfig } from "../../data";
 
+function renderParagraph(block: typeof articles[number]["blocks"][number], key: string) {
+  if (!block.parts?.length) return <p key={key}>{block.text}</p>;
+
+  return (
+    <p key={key}>
+      {block.parts.map((part, partIndex) => (
+        part.href ? <Link href={part.href} key={`${key}-${partIndex}`}>{part.text}</Link> : <span key={`${key}-${partIndex}`}>{part.text}</span>
+      ))}
+    </p>
+  );
+}
+
 export function generateStaticParams() {
   return articles.map(({ slug }) => ({ slug }));
 }
@@ -122,7 +134,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </nav>
             <div className="article-prose">
               {article.blocks.map((block, index) => {
-                if (block.type === "paragraph") return <p key={`${block.type}-${index}`}>{block.text}</p>;
+                if (block.type === "paragraph") return renderParagraph(block, `${block.type}-${index}`);
                 const isH2 = block.id?.split("-").length === 2;
                 if (isH2) return <h2 id={block.id} key={`${block.type}-${index}`}>{block.text}</h2>;
                 return <h3 id={block.id} key={`${block.type}-${index}`}>{block.text}</h3>;
