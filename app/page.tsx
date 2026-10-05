@@ -106,7 +106,7 @@ export default function Home() {
               <h1>عزل يدوم.<br /><em>راحة تستحقها.</em></h1>
               <p>نحمي منزلك من تسربات المياه وحرارة الصيف بحلول عزل مائي وحراري احترافية، وخامات معتمدة، وضمان مكتوب.</p>
               <div className="hero-actions">
-                <a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer" aria-label="طلب معاينة مجانية عبر واتساب">اطلب معاينة مجانية</a>
+                <a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer" aria-label="طلب معاينة الآن عبر واتساب">اطلب معاينة الآن</a>
                 <a className="text-link" href={`tel:${phone}`} aria-label={`اتصال مباشر على ${phone}`}><bdi>{phone}</bdi> اتصال مباشر</a>
               </div>
               <div className="hero-trust"><span>✓ خبرة أكثر من 15 عامًا</span><span>✓ فنيون متخصصون</span><span>✓ ضمان مكتوب</span></div>
