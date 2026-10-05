@@ -151,7 +151,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="shell">
             <nav className="breadcrumbs" aria-label="مسار التنقل"><a href="/">الرئيسية</a> / <a href="/#services">خدمات العزل</a> / <span aria-current="page">{service.shortTitle}</span></nav>
             <div className="service-hero-grid">
-              <div><span className="eyebrow light">{service.eyebrow}</span><h1>{service.title}</h1><p>{service.description}</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a></div>
+              <div><span className="eyebrow light">{service.eyebrow}</span><h1>{service.title}</h1><p>{service.description}</p><a className="button" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة الآن</a></div>
               <div className="service-hero-image">
                 <img
                   src={service.image}
