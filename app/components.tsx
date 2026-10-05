@@ -85,7 +85,7 @@ export function Header() {
             <a href="/#faq" onClick={(e) => handleNavClick(e, '#faq')}>الأسئلة الشائعة</a>
             <a href="/articles">المقالات</a>
           </nav>
-          <a className="button button-small header-cta" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة مجانية</a>
+          <a className="button button-small header-cta" href={`https://wa.me/${internationalPhone}`} target="_blank" rel="noreferrer">اطلب معاينة الآن</a>
         </div>
       </header>
     </>
