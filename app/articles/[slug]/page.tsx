@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: { absolute: article.seoTitle },
     description: article.seoDescription,
     keywords: article.keywords,
-    alternates: { canonical: `/articles/${article.slug}`, languages: { "ar-SA": `/articles/${article.slug}` } },
+    alternates: { canonical: `/articles/${article.slug}`, languages: { "ar-SA": `/articles/${article.slug}`, "x-default": `/articles/${article.slug}` } },
     openGraph: {
       type: "article",
       locale: siteConfig.locale,

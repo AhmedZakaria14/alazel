@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     keywords: [...service.keywords, siteConfig.name],
     alternates: {
       canonical: `/services/${service.slug}`,
-      languages: { "ar-SA": `/services/${service.slug}` },
+      languages: { "ar-SA": `/services/${service.slug}`, "x-default": `/services/${service.slug}` },
     },
     openGraph: {
       type: "website",
@@ -170,22 +170,22 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <section className="section shell service-content">
           <article>
             <span className="eyebrow">تفاصيل الخدمة</span>
-            <h2>حل عملي يناسب حالة موقعك</h2>
+            <h2>تفاصيل {service.shortTitle} حسب حالة الموقع</h2>
             <p>{service.description} نعاين الموقع أولًا ونشرح لك سبب المشكلة وخيارات المعالجة، ثم نحدد الخامات المناسبة والتكلفة قبل التنفيذ. بهذه الطريقة يكون قرار العزل مبنيًا على حالة الموقع الفعلية وليس على حل واحد لكل المشكلات.</p>
             <div className="feature-list">{service.features.map((feature) => <span key={feature}>✓ {feature}</span>)}</div>
 
             <span className="eyebrow">متى تحتاج الخدمة؟</span>
-            <h2>علامات تستحق الفحص قبل أن تتفاقم</h2>
+            <h2>متى تحتاج إلى {service.shortTitle}؟</h2>
             <ul className="service-signs">
               {service.signs.map((sign) => <li key={sign}>{sign}</li>)}
             </ul>
 
             <span className="eyebrow">اختيار النظام المناسب</span>
-            <h2>المعاينة الجيدة تمنع الحلول المؤقتة</h2>
+            <h2>اختيار نظام {service.shortTitle} المناسب</h2>
             <p>{service.benefits}</p>
 
             <span className="eyebrow">مراحل العمل</span>
-            <h2>تنفيذ منظم خطوة بخطوة</h2>
+            <h2>مراحل تنفيذ {service.shortTitle}</h2>
             <ol className="steps-list">{service.steps.map((step) => <li key={step}>{step}</li>)}</ol>
 
             <section className="service-faq" aria-labelledby="service-faq-title">

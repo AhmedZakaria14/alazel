@@ -6,10 +6,10 @@ import { articles } from "../articles-data";
 import { siteConfig } from "../data";
 
 export const metadata: Metadata = {
-  title: { absolute: "مقالات كشف تسربات المياه والعزل في حائل | العازل للعزل الحديث" },
+  title: { absolute: "مقالات كشف التسربات والعزل بحائل | العازل للعزل الحديث" },
   description: "أدلة عملية عن كشف تسريبات المياه وفحص التسرب ومعالجة الرطوبة وحماية العزل في حائل من شركة العازل للعزل الحديث.",
   keywords: ["كشف تسريبات المياه", "شركة كشف تسريبات", "فحص تسريب المياه", "تسريب مياه", "حائل"],
-  alternates: { canonical: "/articles", languages: { "ar-SA": "/articles" } },
+  alternates: { canonical: "/articles", languages: { "ar-SA": "/articles", "x-default": "/articles" } },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,

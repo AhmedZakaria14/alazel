@@ -72,7 +72,7 @@ export function Header() {
       <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="/" aria-label="العازل للعزل الحديث - الرئيسية">
-            <img src="/images/logo.webp" alt="شعار مؤسسة العازل للعزل الحديث" width="62" height="62" />
+            <img src="/images/logo-small.webp" alt="شعار مؤسسة العازل للعزل الحديث" width="62" height="62" />
             <span><strong>العازل للعزل الحديث</strong><small>خبراء العزل في حائل</small></span>
           </a>
           <input className="nav-toggle" type="checkbox" id="nav-toggle" />
@@ -150,7 +150,7 @@ export function FloatingActions() {
 export function ContactBanner() {
   return (
     <section className="contact-banner shell">
-      <div><span className="eyebrow light">استشارة ومعاينة مجانية</span><h2>هل تعاني من تسرب أو حرارة مرتفعة؟</h2><p>أرسل لنا تفاصيل المشكلة وسنقترح لك نظام العزل الأنسب.</p></div>
+      <div><span className="eyebrow light">اطلب معاينة الآن</span><h2>هل تعاني من تسرب أو حرارة مرتفعة؟</h2><p>أرسل لنا تفاصيل المشكلة وسنقترح لك نظام العزل الأنسب.</p></div>
       <div className="banner-actions"><a className="button button-light" href={`https://wa.me/${internationalPhone}`}>تواصل عبر واتساب</a><a className="text-link light-link" href={`tel:${phone}`}><bdi>{phone}</bdi> اتصل الآن</a></div>
     </section>
   );

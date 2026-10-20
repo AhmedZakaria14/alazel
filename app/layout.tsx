@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   publisher: siteConfig.name,
   applicationName: siteConfig.name,
   category: "خدمات العزل والصيانة المنزلية",
-  referrer: "origin-when-cross-origin",
+  referrer: "strict-origin-when-cross-origin",
   formatDetection: {
     email: false,
     address: false,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
-    languages: { "ar-SA": "/" },
+    languages: { "ar-SA": "/", "x-default": "/" },
   },
   openGraph: {
     type: "website",

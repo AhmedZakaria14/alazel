@@ -43,7 +43,7 @@ NEXT_PUBLIC_YANDEX_SITE_VERIFICATION=ضع_رمز_ياندكس_هنا
 ثم أعد بناء الموقع ونشره. بعد النشر أرسل الرابط التالي داخل Google Search Console:
 
 ```text
-https://roknalebtesama.com/sitemap.xml
+https://www.azelhail.com/sitemap.xml
 ```
 
 ولإشعار محركات البحث المشاركة في IndexNow يدويًا بعد التأكد من نشر النسخة الجديدة:

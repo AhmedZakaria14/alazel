@@ -1,0 +1,38 @@
+name: Verify SEO audit fixes
+on:
+  push:
+    branches: [main, seo-audit-20261020]
+permissions:
+  contents: read
+concurrency:
+  group: seo-audit-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - run: python scripts/optimize-audit-images.py
+      - run: npm ci --registry=https://registry.npmjs.org
+      - run: npm test
+      - run: npx tsc --noEmit
+      - name: Save optimized image assets after passing checks
+        if: github.ref_name == 'seo-audit-20261020'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images
+          if ! git diff --cached --quiet; then
+            git commit -m "Optimize article images and add lightweight transparent header logo"
+            git push origin HEAD:seo-audit-20261020
+          fi
