@@ -25,6 +25,7 @@ jobs:
       - run: python scripts/optimize-audit-images.py
       - run: npm ci --registry=https://registry.npmjs.org
       - run: npm test
+      - run: npx wrangler types --config tests/wrangler-types.json
       - run: npx tsc --noEmit
       - name: Save optimized image assets after passing checks
         if: github.ref_name == 'seo-audit-20261020'
