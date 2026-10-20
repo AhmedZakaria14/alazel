@@ -34,6 +34,19 @@ class Page(HTMLParser):
             self.title += data
 
 routes = ["/", "/articles", "/services/roof-insulation", "/services/tank-insulation", "/services/bathroom-insulation", "/services/kitchen-insulation", "/articles/water-leaks-types", "/articles/specialized-leak-detection-company", "/articles/timing-moisture-water-leak", "/articles/accurate-water-leak-inspection", "/articles/treat-water-leak-insulation", *EXPECTED]
+EXPECTED.update({
+    "/articles/water-tank-insulation-hail-guide": "شركة عزل خزانات المياه بحائل | دليل الفحص والعزل",
+    "/articles/concrete-water-tank-insulation": "عزل خزانات المياه الخرسانية | الخطوات والمواد والتكلفة",
+    "/articles/choose-tank-insulation-company": "أفضل شركة عزل خزانات | معايير الاختيار والعناية بالخزان",
+    "/articles/choose-ground-tank-insulation-company": "شركة عزل خزان أرضي بحائل | اختيار المواد وتحديد التكلفة",
+    "/articles/overhead-tank-insulation": "عزل الخزان العلوي | الحماية من التسرب والحرارة بحائل",
+    "/articles/verify-insulation-contractors": "شركات العزل المعتمدة | التحقق من الخامات والعرض والضمان",
+    "/articles/choose-roof-insulation-company-hail": "أفضل شركة عزل اسطح بحائل | الفحص والتنفيذ والتكلفة",
+    "/articles/roof-insulation-over-tiles": "عزل اسطح فوق البلاط | تجهيز السطح ومعالجة التسرب بحائل",
+    "/articles/roof-foam-insulation-guide": "عزل اسطح فوم بحائل | المزايا وطريقة التنفيذ والسعر",
+    "/articles/best-waterproofing-over-tiles": "افضل عازل مائي للاسطح فوق البلاط | معايير الاختيار"
+})
+routes.extend(route for route in EXPECTED if route not in routes)
 for attempt in range(6):
     try:
         titles = set()

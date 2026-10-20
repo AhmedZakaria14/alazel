@@ -24,7 +24,7 @@ test("article text links are complete phrases and image files are optimized", as
   }
 });
 
-test("all 18 rendered routes preserve SEO, complete links and business details", async () => {
+test("all rendered routes preserve SEO, complete links and business details", async () => {
   const titles = new Set();
   for (const route of routes) {
     const response = await worker.fetch(new Request("https://www.azelhail.com" + route, { headers: { accept: "text/html" } }), env, ctx);
@@ -49,4 +49,29 @@ test("all 18 rendered routes preserve SEO, complete links and business details",
     }
   }
   console.log("Validated " + routes.length + " rendered pages.");
+});
+
+test("new editorial articles retain complete content, navigation and valid internal destinations", async () => {
+  const additions = articles.filter(a => a.datePublished === "2026-10-20");
+  assert.equal(additions.length, 10);
+  assert.equal(articles.length, 22);
+  const sitemap = await readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8");
+  for (const article of additions) {
+    assert.ok(article.blocks.reduce((n, b) => n + b.text.split(/\s+/).length, 0) > 1100, article.slug);
+    assert.ok(sitemap.includes("/articles/" + article.slug));
+    const ids = new Set(article.blocks.filter(b => b.type === "heading").map(b => b.id));
+    assert.equal(ids.size, article.blocks.filter(b => b.type === "heading").length);
+    for (const item of article.toc) assert.ok(ids.has(item.id), article.slug + ": missing TOC destination");
+    for (const slug of article.relatedSlugs) assert.ok(articles.some(a => a.slug === slug), slug);
+    for (const block of article.blocks) {
+      if (block.parts) assert.equal(block.parts.map(p => p.text).join("").trim(), block.text);
+      for (const part of block.parts || []) if (part.href?.startsWith("/")) assert.ok(routes.includes(part.href), part.href);
+    }
+    const response = await worker.fetch(new Request("https://www.azelhail.com/articles/" + article.slug), env, ctx);
+    const html = await response.text();
+    for (const item of article.toc) assert.ok(html.includes('id="' + item.id + '"'));
+    assert.ok(html.includes('FAQPage'));
+    assert.ok(html.includes('2026-10-20'));
+    assert.ok(html.includes(article.image));
+  }
 });

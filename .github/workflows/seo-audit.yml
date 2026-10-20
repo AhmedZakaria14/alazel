@@ -1,7 +1,7 @@
 name: Verify SEO audit fixes
 on:
   push:
-    branches: [main, seo-audit-20261020]
+    branches: [main, seo-audit-20261020, articles-20261020]
 permissions:
   contents: read
 concurrency:
