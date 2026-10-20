@@ -1,5 +1,7 @@
 """Read back the public deployment after the reviewed main branch release."""
 import json
+import hashlib
+from pathlib import Path
 import time
 import urllib.request
 from html.parser import HTMLParser
@@ -66,12 +68,22 @@ for attempt in range(6):
                 assert page.title == EXPECTED[route], (route, page.title)
             assert "0596204627" in html and "اطلب معاينة الآن" in html, route
             assert "معاينة مجانية" not in html, route
-        for filename in ("water-leaks-types", "specialist-leak-company", "timing-moisture", "accurate-leak-inspection", "treat-leak-protect-insulation"):
-            with urllib.request.urlopen(BASE + "/images/articles/" + filename + ".webp", timeout=20) as response:
+        source = (Path(__file__).resolve().parents[1] / "app/articles-data.ts").read_text()
+        start = source.index("= [", source.index("export const articles")) + 2
+        articles = json.loads(source[start:source.rindex("];") + 1])
+        hashes = set()
+        for article in articles:
+            with urllib.request.urlopen(BASE + article["image"], timeout=20) as response:
                 payload = response.read()
-                assert response.status == 200 and len(payload) < 200000, filename
-                assert payload[:4] == b"RIFF" and payload[8:12] == b"WEBP", filename
-        print(json.dumps({"public_pages_checked": len(routes), "optimized_images_checked": 5, "security_headers": "present", "metadata": "verified", "phone": "0596204627"}, ensure_ascii=False))
+                assert response.status == 200 and len(payload) < 200000, article["slug"]
+                assert payload[:4] == b"RIFF" and payload[8:12] == b"WEBP", article["slug"]
+                digest = hashlib.sha256(payload).hexdigest()
+                assert digest not in hashes, ("duplicate article image", article["slug"])
+                hashes.add(digest)
+            with urllib.request.urlopen(BASE + "/articles/" + article["slug"], timeout=20) as response:
+                html = response.read().decode("utf-8")
+                assert article["image"] in html, ("stale image reference", article["slug"])
+        print(json.dumps({"public_pages_checked": len(routes), "distinct_article_images_checked": len(hashes), "security_headers": "present", "metadata": "verified", "phone": "0596204627"}, ensure_ascii=False))
         break
     except Exception as exc:
         print(json.dumps({"attempt": attempt + 1, "error": str(exc)}, ensure_ascii=False), flush=True)

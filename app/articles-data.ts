@@ -1,6 +1,6 @@
 export type ArticleTextPart = { text: string; href?: string };
 export type ArticleBlock = { type: "heading" | "paragraph"; text: string; id?: string; parts?: ArticleTextPart[] };
-export type Article = { datePublished?: string; dateModified?: string; slug: string; title: string; seoTitle: string; seoDescription: string; primaryKeyword: string; keywords: string[]; image: string; imageWidth: number; imageHeight: number; imageAlt: string; excerpt: string; toc: { id: string; text: string }[]; blocks: ArticleBlock[]; relatedSlugs: string[] };
+export type Article = { imageCaption?: string; datePublished?: string; dateModified?: string; slug: string; title: string; seoTitle: string; seoDescription: string; primaryKeyword: string; keywords: string[]; image: string; imageWidth: number; imageHeight: number; imageAlt: string; excerpt: string; toc: { id: string; text: string }[]; blocks: ArticleBlock[]; relatedSlugs: string[] };
 
 export const articles: Article[] = [
   {
@@ -19,10 +19,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/tank.webp",
-    "imageWidth": 677,
+    "image": "/images/articles/water-tank-insulation-hail-guide.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "خزان مياه ضمن خدمات عزل الخزانات في حائل",
+    "imageAlt": "صورة توضيحية لفحص خزان مياه من فتحة المعاينة قبل العزل",
     "excerpt": "تقدم شركة عزل خزانات المياه بحائل حلولًا تساعد على حماية الخزانات الأرضية والعلوية من التسربات، مع الاهتمام بمعالجة الشقوق وتجهيز الأسطح قبل تطبيق مواد العزل المناسبة. وتساعد هذه الخطوات على تقليل الأضرار الناتجة عن تسرب المياه والحفاظ على سلامة الخزان والمبنى.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -378,7 +378,8 @@ export const articles: Article[] = [
       "concrete-water-tank-insulation",
       "epoxy-tank-insulation",
       "ground-tank-insulation"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "concrete-water-tank-insulation",
@@ -399,10 +400,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/tank.webp",
-    "imageWidth": 677,
+    "image": "/images/articles/concrete-water-tank-insulation.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "خزان مياه ضمن خدمات عزل الخزانات في حائل",
+    "imageAlt": "صورة توضيحية لطبقة العزل ووصلات الجدران والأرضية في خزان خرساني",
     "excerpt": "عزل خزانات المياه الخرسانية من الخطوات المهمة لحماية الخزانات من التسربات وتقليل الأضرار التي قد تصيب الجدران والأرضيات المحيطة بها، وتساعد معالجة الشقوق واختيار مادة العزل المناسبة على تحسين سلامة الخزان، مع ضرورة فحص حالته قبل تحديد طريقة التنفيذ والخامات المطلوبة.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -750,7 +751,8 @@ export const articles: Article[] = [
       "choose-tank-insulation-company",
       "epoxy-tank-insulation",
       "ground-tank-insulation"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "choose-tank-insulation-company",
@@ -766,10 +768,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/tank.webp",
-    "imageWidth": 677,
+    "image": "/images/articles/choose-tank-insulation-company.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "خزان مياه ضمن خدمات عزل الخزانات في حائل",
+    "imageAlt": "صورة توضيحية لمقارنة عينات مواد عزل الخزانات قبل اختيار الشركة",
     "excerpt": "أفضل شركة عزل خزانات هي التي تبدأ بفحص الخزان وتحديد سبب التسرب ثم تختار مواد العزل المناسبة لمياه الاستخدام وتعالج الشقوق قبل التنفيذ، لأن جودة التحضير والتطبيق تؤثر في سلامة الخزان وتقليل احتمالات تكرار المشكلة",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -1072,7 +1074,8 @@ export const articles: Article[] = [
       "choose-ground-tank-insulation-company",
       "epoxy-tank-insulation",
       "ground-tank-insulation"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "choose-ground-tank-insulation-company",
@@ -1089,10 +1092,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/tank.webp",
-    "imageWidth": 677,
+    "image": "/images/articles/choose-ground-tank-insulation-company.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "خزان مياه ضمن خدمات عزل الخزانات في حائل",
+    "imageAlt": "صورة توضيحية لفحص خزان أرضي من فتحة الوصول الخارجية",
     "excerpt": "شركة عزل خزان أرضي تساعدك على حماية مياه الاستخدام وتقليل مخاطر التسرب والرطوبة التي قد تؤثر في الخرسانة والمبنى، لكن الوصول إلى نتيجة جيدة يبدأ باختيار الجهة المناسبة وفحص الخزان قبل تحديد مادة العزل وطريقة التنفيذ، وهنا تأتي أهمية الاستعانة بمتخصصين يحددون الحل وفق حالة الخزان الفعلية.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -1395,7 +1398,8 @@ export const articles: Article[] = [
       "overhead-tank-insulation",
       "epoxy-tank-insulation",
       "ground-tank-insulation"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "overhead-tank-insulation",
@@ -1411,10 +1415,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/tank.webp",
-    "imageWidth": 677,
+    "image": "/images/articles/overhead-tank-insulation.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "خزان مياه ضمن خدمات عزل الخزانات في حائل",
+    "imageAlt": "صورة توضيحية لخزان مياه علوي بغطاء عزل حراري ومواسير معزولة",
     "excerpt": "عزل الخزان العلوي خطوة مهمة لحماية المياه والمبنى من مشكلات التسرب، خاصة عندما يتعرض الخزان لأشعة الشمس وتغيرات الطقس طوال العام، فإهمال الشقوق أو ضعف العزل قد يؤدي إلى تسرب المياه نحو السطح وظهور الرطوبة في المناطق المحيطة، لذلك يحتاج الخزان إلى فحص يحدد المشكلة قبل اختيار طريقة المعالجة المناسبة.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -1679,7 +1683,8 @@ export const articles: Article[] = [
       "water-tank-insulation-hail-guide",
       "epoxy-tank-insulation",
       "ground-tank-insulation"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "verify-insulation-contractors",
@@ -1695,10 +1700,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/roof.webp",
-    "imageWidth": 675,
+    "image": "/images/articles/verify-insulation-contractors.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "أعمال عزل سطح لحماية المبنى من المياه والحرارة",
+    "imageAlt": "صورة توضيحية لمراجعة مواصفات وعينات مواد العزل قبل التعاقد",
     "excerpt": "شركات العزل المعتمدة يبحث عنها أصحاب العقارات عندما تصبح حرارة الأسطح مزعجة أو تظهر آثار الرطوبة والتسربات داخل المبنى، لكن الحل الفعال لا يبدأ بشراء مادة عزل عشوائية، بل بتحديد مصدر المشكلة واختيار النظام المناسب لطبيعة السطح، حتى تحصل على حماية تلائم احتياجات منزلك وتقلل احتمالات تكرار الإصلاحات.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -2001,7 +2006,8 @@ export const articles: Article[] = [
       "choose-roof-insulation-company-hail",
       "roof-insulation-hail",
       "foam-insulation-company-hail"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "choose-roof-insulation-company-hail",
@@ -2014,10 +2020,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/roof.webp",
-    "imageWidth": 675,
+    "image": "/images/articles/choose-roof-insulation-company-hail.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "أعمال عزل سطح لحماية المبنى من المياه والحرارة",
+    "imageAlt": "صورة توضيحية لمعاينة سطح ومصرف المياه قبل أعمال العزل",
     "excerpt": "أفضل شركة عزل اسطح بحائل هي التي تساعدك على معالجة مشكلة السطح من جذورها، سواء كنت تعاني من ارتفاع الحرارة داخل الأدوار العلوية أو ظهور بقع الرطوبة بعد الأمطار، فاختيار العزل المناسب لا يحمي المبنى فقط، بل يساعدك على تجنب الإصلاحات المتكررة التي تبدأ غالبا من إهمال الشقوق والفواصل وضعف الحماية.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -2282,7 +2288,8 @@ export const articles: Article[] = [
       "roof-insulation-over-tiles",
       "roof-insulation-hail",
       "foam-insulation-company-hail"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "roof-insulation-over-tiles",
@@ -2300,10 +2307,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/roof.webp",
-    "imageWidth": 675,
+    "image": "/images/articles/roof-insulation-over-tiles.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "أعمال عزل سطح لحماية المبنى من المياه والحرارة",
+    "imageAlt": "صورة توضيحية لتطبيق عازل على فواصل بلاط السطح",
     "excerpt": "عزل اسطح فوق البلاط من الحلول التي يبحث عنها أصحاب المنازل عند ظهور تسربات المياه أو ملاحظة تجمع الأمطار على السطح، خاصة عندما يرغبون في حماية المبنى دون اللجوء إلى إزالة البلاط قبل التأكد من الحاجة لذلك، واختيار نظام العزل المناسب يبدأ بفحص حالة السطح وتحديد مصدر التسرب.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -2652,7 +2659,8 @@ export const articles: Article[] = [
       "roof-foam-insulation-guide",
       "roof-insulation-hail",
       "foam-insulation-company-hail"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "roof-foam-insulation-guide",
@@ -2672,10 +2680,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/roof.webp",
-    "imageWidth": 675,
+    "image": "/images/articles/roof-foam-insulation-guide.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "أعمال عزل سطح لحماية المبنى من المياه والحرارة",
+    "imageAlt": "صورة توضيحية لرش عزل فوم البولي يوريثان على سطح مبنى",
     "excerpt": "عزل اسطح فوم من الحلول التي تساعد على حماية منزلك من تسربات المياه وانتقال حرارة الشمس، خاصةً في الأجواء الحارة التي تتعرض فيها الأسطح لدرجات حرارة مرتفعة، واختيار نظام العزل المناسب يبدأ بفحص السطح وتحديد احتياجاته، حتى تحصل على حماية تتناسب مع طبيعة المبنى.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -3080,7 +3088,8 @@ export const articles: Article[] = [
       "best-waterproofing-over-tiles",
       "roof-insulation-hail",
       "foam-insulation-company-hail"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "best-waterproofing-over-tiles",
@@ -3095,10 +3104,10 @@ export const articles: Article[] = [
       "حائل",
       "العازل للعزل الحديث"
     ],
-    "image": "/images/roof.webp",
-    "imageWidth": 675,
+    "image": "/images/articles/best-waterproofing-over-tiles.webp",
+    "imageWidth": 1600,
     "imageHeight": 900,
-    "imageAlt": "أعمال عزل سطح لحماية المبنى من المياه والحرارة",
+    "imageAlt": "صورة توضيحية لعينات أنظمة عزل مائي مختلفة فوق البلاط",
     "excerpt": "افضل عازل مائي للاسطح فوق البلاط هو الذي يتناسب مع حالة السطح ويعالج مشكلة التسرب دون التسبب في أضرار إضافية، فاختيار المادة المناسبة يحتاج إلى فحص البلاط والفواصل ومناطق تصريف المياه، ومعرفة ما إذا كان السطح يحتاج إلى عزل مائي فقط أم إلى حماية تجمع بين مقاومة الماء وتقليل انتقال الحرارة.",
     "datePublished": "2026-10-20",
     "dateModified": "2026-10-20",
@@ -3425,7 +3434,8 @@ export const articles: Article[] = [
       "verify-insulation-contractors",
       "roof-insulation-hail",
       "foam-insulation-company-hail"
-    ]
+    ],
+    "imageCaption": "صورة توضيحية لموضوع المقال"
   },
   {
     "slug": "water-leaks-types",

@@ -75,3 +75,25 @@ test("new editorial articles retain complete content, navigation and valid inter
     assert.ok(html.includes(article.image));
   }
 });
+
+test("every article has a distinct image asset and matching dimensions", async () => {
+  const { createHash } = await import("node:crypto");
+  const paths = new Set();
+  const hashes = new Set();
+  for (const article of articles) {
+    assert.ok(!paths.has(article.image), article.slug + ": repeated image path");
+    paths.add(article.image);
+    const bytes = await readFile(new URL("../public" + article.image, import.meta.url));
+    const digest = createHash("sha256").update(bytes).digest("hex");
+    assert.ok(!hashes.has(digest), article.slug + ": duplicate image bytes");
+    hashes.add(digest);
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+    assert.ok(article.imageAlt.trim().length > 15);
+    if (article.datePublished === "2026-10-20") {
+      assert.equal(article.imageWidth, 1600);
+      assert.equal(article.imageHeight, 900);
+      assert.ok(bytes.length < 200000);
+    }
+  }
+});

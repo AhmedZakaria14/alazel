@@ -120,7 +120,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <nav className="breadcrumbs" aria-label="مسار التنقل"><Link href="/">الرئيسية</Link> / <Link href="/articles">المقالات</Link> / <span aria-current="page">{article.title}</span></nav>
             <div className="article-hero-grid">
               <div className="article-hero-copy"><span className="eyebrow light">{article.primaryKeyword}</span><h1>{article.title}</h1><p>{article.excerpt}</p></div>
-              <div className="article-hero-image"><img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} fetchPriority="high" /></div>
+              <div className="article-hero-image"><img src={article.image} alt={article.imageAlt} width={article.imageWidth} height={article.imageHeight} fetchPriority="high" />{article.imageCaption && <span className="article-image-caption">{article.imageCaption}</span>}</div>
             </div>
           </div>
         </section>
